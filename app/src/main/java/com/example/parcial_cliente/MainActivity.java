@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 () ->{
                     try {
                         System.out.println("Connecting to server...");
-                        socket = new Socket("192.168.1.58", 7000);
+                        socket = new Socket("192.168.1.52", 5000);
                         System.out.println("Established connection to server");
 
                         InputStream is = socket.getInputStream();
