@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     boolean crear;
     boolean borrar;
 
+    int x, y, particulas;
+    String nombre;
+
     private Socket socket;
     BufferedWriter writer;
     BufferedReader reader;
@@ -91,10 +94,10 @@ public class MainActivity extends AppCompatActivity {
 
                         Gson gson = new Gson();
 
-                        String nombre = nombreText.getText().toString();
-                        int particulas = Integer.parseInt(particulasText.getText().toString());
-                        int x = Integer.parseInt(xText.getText().toString());
-                        int y = Integer.parseInt(yText.getText().toString());
+                        nombre = nombreText.getText().toString();
+                        particulas = Integer.parseInt(particulasText.getText().toString());
+                        x = Integer.parseInt(xText.getText().toString());
+                        y = Integer.parseInt(yText.getText().toString());
                         crear= true;
                         borrar= false;
 
@@ -104,12 +107,22 @@ public class MainActivity extends AppCompatActivity {
 
                         enviarMensaje(json);
 
+                    nombreText. getText().clear();
+                    particulasText. getText().clear();
+                    xText. getText().clear();
+                    yText. getText().clear();
+
                 }
         );
 
         borrarButton.setOnClickListener(
                 (view)->
                 {
+                    nombreText. getText().clear();
+                    particulasText. getText().clear();
+                    xText. getText().clear();
+                    yText. getText().clear();
+
                     Gson gson = new Gson();
 
                     String nombre = nombreText.getText().toString();
@@ -124,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                     String json = gson.toJson(particula);
 
                     enviarMensaje(json);
+
+
 
 
                 }
